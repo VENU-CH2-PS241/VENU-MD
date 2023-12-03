@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="magenta">#FFFF00FF</color>
+    <color name="cyan">#FF00FFFF</color>
+
+    <!-- Custom colors -->
+    <color name="grey_200">#9D9D9D</color>
+    <color name="grey_100">#A3A2A2</color>
+    <color name="RoyalBlue">#6380D4</color>
+    <color name="Aquamarine">#63AABE</color>
+</resources>
