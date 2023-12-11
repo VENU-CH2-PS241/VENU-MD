@@ -3,5 +3,55 @@
     <string name="bot_nav_home">Home</string>
     <string name="bot_nav_checker">Checker</string>
     <string name="bot_nav_profile">Profile</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="greeting">Welcome!</string>
+    <string name="or">OR</string>
+    <string name="sign_in_google">SIGN IN WITH GOOGLE</string>
+    <string name="font_size">Please Set The Font Size</string>
+    <string name="small">SMALL</string>
+    <string name="medium">MEDIUM</string>
+    <string name="large">LARGE</string>
+    <string name="Rline">Right Line</string>
+    <string name="Lline">Left Line</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmpass">Confirm Password</string>
+    <string name="signin">SIGN IN</string>
+    <string name="signup">SIGN UP</string>
+    <string name="signuptxt">Already have an account?</string>
+    <string name="signupbtn">Sign In here</string>
+    <string name="signintxt">Dont\' have an account?</string>
+    <string name="signinbtn">Sign Up here</string>
+    <string name="technology">Technology</string>
+    <string name="sport">Technology</string>
+    <string name="photo">Photo</string>
+    <string name="lifestyle">Life Style</string>
+    <string name="food">Food</string>
+    <string name="economy">Economy</string>
+    <string name="entertainement">Entertainment</string>
+    <string name="politic">Politic</string>
+    <string name="analyze">Analyze</string>
+    <string name="warning">OOPS! IT SEEMS YOU  DON\’T HAVE AN ACCOUNT</string>
+    <string name="choosethetopic">Choose The Topic</string>
+    <string name="chekertext">Check anything you want</string>
+    <string name="news_title">Title</string>
+    <string name="news_topic">Topic</string>
+    <string name="news_percentage">Percentage</string>
+    <string name="checker_message">Start verify your news!</string>
+    <string name="app_mode">App Mode</string>
+    <string name="critic_advices">Critics and Advices</string>
+    <string name="about_venu">About VENU</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="version">1.0</string>
+    <string name="release">2023</string>
+    <string name="back_button">back_button</string>
+    <string name="bookmark_img">bookmark_img</string>
+    <string name="start_saving_your_favorite_news">Start Saving Your Favorite News</string>
+    <string name="checker_percentage">0%</string>
+    <string name="fab_topic">button_topic</string>
+    <string name="fab_menu">button_topic</string>
+    <string name="icon_appbar">icon_appbar</string>
+    <string name="fab_check">button_check</string>
+
+
 </resources>

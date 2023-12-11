@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.capstone.venu"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.capstone.venu"
@@ -64,6 +64,7 @@ dependencies {
     implementation ("com.google.firebase:firebase-auth:22.3.0")
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation ("androidx.core:core-splashscreen:1.0.1")
 
 
 }

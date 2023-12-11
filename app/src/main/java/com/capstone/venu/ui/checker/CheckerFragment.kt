@@ -35,7 +35,7 @@ class CheckerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_checker, container, false)
+        return inflater.inflate(R.layout.empty_checker_layout, container, false)
     }
 
     companion object {
