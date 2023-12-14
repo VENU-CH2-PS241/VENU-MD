@@ -16,19 +16,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomeFragment())
+
+        setupBottomNavigationView()
+
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
+        }
 
         //setOnItemSelected error
 
     }
 
-    private fun replaceFragment(fragment : Fragment){
+    private fun setupBottomNavigationView() {
+        binding.botNavView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.bn_home -> replaceFragment(HomeFragment())
+                R.id.bn_checker -> replaceFragment(CheckerFragment())
+                R.id.bn_profile -> replaceFragment(ProfileFragment())
+            }
+            true
+        }
+    }
 
+    private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.botNavView,fragment)
         fragmentTransaction.commit()
-
-
     }
 }

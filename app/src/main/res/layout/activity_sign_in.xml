@@ -63,34 +63,34 @@
         app:layout_constraintTop_toBottomOf="@id/username" />
 
     <Button
-        android:id="@+id/btn_signup"
+        android:id="@+id/btn_signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="50dp"
-        android:text="@string/singup"
+        android:text="@string/signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pass" />
 
     <TextView
-        android:id="@+id/tv_singup_txt"
+        android:id="@+id/tv_signin_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/singintxt"
-        app:layout_constraintEnd_toEndOf="@id/tv_singup_btn"
+        android:text="@string/signintxt"
+        app:layout_constraintEnd_toEndOf="@id/tv_signin_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_signup" />
+        app:layout_constraintTop_toBottomOf="@id/btn_signin" />
 
     <TextView
-        android:id="@+id/tv_singup_btn"
+        android:id="@+id/tv_signin_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:text="@string/singinbtn"
+        android:text="@string/signinbtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_singup_txt"
-        app:layout_constraintTop_toTopOf="@id/tv_singup_txt" />
+        app:layout_constraintStart_toStartOf="@id/tv_signin_txt"
+        app:layout_constraintTop_toTopOf="@id/tv_signin_txt" />
 
     <LinearLayout
         android:id="@+id/linearor"
@@ -101,7 +101,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_singup_btn">
+        app:layout_constraintTop_toBottomOf="@id/tv_signin_btn">
 
         <ImageView
             android:layout_width="160dp"
@@ -140,7 +140,7 @@
         android:elevation="5dp"
         android:gravity="center"
         android:paddingHorizontal="20dp"
-        android:text="@string/sign_in"
+        android:text="@string/sign_in_google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearor" />

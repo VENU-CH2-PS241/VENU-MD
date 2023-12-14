@@ -64,6 +64,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <!-- TODO : add FAB and progress bar -->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
