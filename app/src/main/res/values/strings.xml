@@ -5,6 +5,7 @@
     <string name="bot_nav_profile">Profile</string>
     <string name="greeting">Welcome!</string>
     <string name="or">OR</string>
+    <string name="sign_up_google">SIGN UP WITH GOOGLE</string>
     <string name="sign_in_google">SIGN IN WITH GOOGLE</string>
     <string name="font_size">Please Set The Font Size</string>
     <string name="small">SMALL</string>
@@ -46,12 +47,13 @@
     <string name="release">2023</string>
     <string name="back_button">back_button</string>
     <string name="bookmark_img">bookmark_img</string>
-    <string name="start_saving_your_favorite_news">Start Saving Your Favorite News</string>
+    <string name="start_saving_your_favorite_news">Start saving your favorite news!</string>
     <string name="checker_percentage">0%</string>
     <string name="fab_topic">button_topic</string>
     <string name="fab_menu">button_topic</string>
     <string name="icon_appbar">icon_appbar</string>
     <string name="fab_check">button_check</string>
-
-
+    <string name="err_msg_required">%1$s is required</string>
+    <string name="err_msg_email">Invalid Email</string>
+    <string name="err_msg_password">Your password doesn\'t match!</string>
 </resources>

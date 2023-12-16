@@ -27,7 +27,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_btn_white_round_50"
         android:elevation="3dp"
-        android:text="@string/singup" />
+        android:text="@string/signup" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"

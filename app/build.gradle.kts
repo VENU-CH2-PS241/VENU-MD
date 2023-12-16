@@ -1,6 +1,7 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
+    id ("com.google.devtools.ksp")
     id ("kotlin-kapt")
     id ("kotlin-android")
     id ("kotlin-parcelize")
@@ -66,5 +67,10 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     implementation ("androidx.core:core-splashscreen:1.0.1")
 
-
+    //Room
+    implementation("androidx.room:room-ktx:2.5.2")
+    implementation("androidx.room:room-runtime:2.5.2")
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+    implementation("androidx.room:room-paging:2.6.0-rc01")
+    ksp("androidx.room:room-compiler:2.5.2")
 }

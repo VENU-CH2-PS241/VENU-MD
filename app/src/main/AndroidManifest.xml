@@ -20,7 +20,7 @@
         <activity
             android:name=".ui.splash_screen.SplashScreenActivity"
             android:exported="false"
-            android:theme="@style/Theme.VENU.SlashScreenActivity" />
+            android:theme="@style/Theme.VENU" />
         <activity
             android:name=".ui.advertisement.AdvertisementActivity"
             android:exported="false" />
@@ -31,16 +31,7 @@
             android:name=".ui.sign_in.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.profile.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.bookmark.BookmarkActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.checker.CheckerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.home.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
