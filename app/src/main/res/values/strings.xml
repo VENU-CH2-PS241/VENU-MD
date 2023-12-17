@@ -23,6 +23,7 @@
     <string name="signupbtn">Sign In here</string>
     <string name="signintxt">Dont\' have an account?</string>
     <string name="signinbtn">Sign Up here</string>
+    <string name="sign_out">Sign Out</string>
     <string name="technology">Technology</string>
     <string name="sport">Technology</string>
     <string name="photo">Photo</string>
@@ -39,10 +40,12 @@
     <string name="news_topic">Topic</string>
     <string name="news_percentage">Percentage</string>
     <string name="checker_message">Start verify your news!</string>
-    <string name="app_mode">App Mode</string>
+    <string name="dark_mode">Dark Mode</string>
     <string name="critic_advices">Critics and Advices</string>
     <string name="about_venu">About VENU</string>
     <string name="bookmarks">Bookmarks</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="faq">FAQ</string>
     <string name="version">1.0</string>
     <string name="release">2023</string>
     <string name="back_button">back_button</string>
@@ -56,5 +59,26 @@
     <string name="err_msg_required">%1$s is required</string>
     <string name="err_msg_email">Invalid Email</string>
     <string name="err_msg_password">Your password doesn\'t match!</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="recommend">Recommended for you</string>
+    <string name="subject">Subject</string>
+    <string name="description">Description</string>
+    <string name="send">SEND</string>
+
+    <!-- FAQ and Answers -->
+    <string name="faq_long">Frequently Asked Questions</string>
+    <string name="faq_question1">Apa maksud persentase pada berita?</string>
+    <string name="faq_answer1">Persentase tersebut merupakan indikasi ketidakbenaran berita tersebut. Dengan melihat cara penulisan, bahasa yang digunakan, pemilihan kosakata, dsb, model kami dapat menilai berapa persen suatu berita terindikasi hoaks.</string>
+    <string name="faq_question2">Bagaimana jika berita yang ingin saya deteksi tidak tercantum pada beranda?</string>
+    <string name="faq_answer2">Untuk mendeteksi berita yang tidak tercantum, pengguna dapat menyalin (copy) teks yang hendak dideteksi, kemudian pergi ke halaman Checker (terletak di bagian tengah bawah pada aplikasi). Setelah itu klik tombol dengan tanda (+), tempel (paste) teks dan klik Analyze.</string>
+    <string name="faq_question3">Bagaimana fitur Hoax Detector di VENU bekerja?</string>
+    <string name="faq_answer3">Fitur ini bekerja dengan menggunakan model Machine Learning. Teks yang diterima akan diubah menjadi token, kemudian token tersebut akan dianalisis oleh model. Setelah itu, berdasarkan pembelajaran historis, model dapat menghitung persentase hoaks pada text tersebut.</string>
+    <string name="faq_question4">Bagaimana jika ingin mencari berita terkait?</string>
+    <string name="faq_answer4">Untuk mengakses berita terkait, kami menyediakan fitur rekomendasi berita yang dapat diakses pada bagian bawah halaman berita. Rekomendasi berita ini akan menyediakan berita berdasarkan kemiripan pada berita yang sedang dibaca.</string>
+
+    <!-- About VENU -->
+    <string name="about_venu_desc">VENU (Verify News for You) adalah platform yang menyediakan berita terkini dari berbagai sumber dengan berbagai topik. VENU juga memiliki fitur Detektor Hoax (Hoax Checker) untuk memeriksa kebenaran informasi, dimana pengguna dapat memasukkan input informasi berupa teks dan mendapatkan hasil persentase kebenaran informasi tersebut.</string>
+
+    <!--web client id-->
     <string name="default_web_client_id">1033764408342-f0jd02ipb6vcuuidbs8ap2j0i85b6g4k.apps.googleusercontent.com</string>
 </resources>
