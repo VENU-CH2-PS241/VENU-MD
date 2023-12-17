@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1033764408342",
+    "project_id": "venu-a9b78",
+    "storage_bucket": "venu-a9b78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033764408342:android:cbca07ddd57a9388c1f937",
+        "android_client_info": {
+          "package_name": "com.capstone.venu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033764408342-huccgid4u2cf9dke37d8mskt6uql0pef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.venu",
+            "certificate_hash": "3bfc8e3f1897fec9fe76fc0dfb2ec6dd0bcd0e06"
+          }
+        },
+        {
+          "client_id": "1033764408342-f0jd02ipb6vcuuidbs8ap2j0i85b6g4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEuOeHdt0J303kgvqrLNgGFblifkL8SMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033764408342-f0jd02ipb6vcuuidbs8ap2j0i85b6g4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ package com.capstone.venu.ui.bookmark
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
 import com.capstone.venu.R
 
 class BookmarkActivity : AppCompatActivity() {

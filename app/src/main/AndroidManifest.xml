@@ -19,29 +19,29 @@
             android:exported="false" />
         <activity
             android:name=".ui.splash_screen.SplashScreenActivity"
-            android:exported="false"
-            android:theme="@style/Theme.VENU" />
-        <activity
-            android:name=".ui.advertisement.AdvertisementActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.sign_up.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.sign_in.SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.bookmark.BookmarkActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.VENU">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.advertisement.AdvertisementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.sign_up.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.sign_in.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.bookmark.BookmarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
