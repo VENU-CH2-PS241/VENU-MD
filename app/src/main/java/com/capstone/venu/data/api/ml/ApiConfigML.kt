@@ -1,19 +1,20 @@
 package com.capstone.venu.data.api.ml
 
+import com.capstone.venu.BuildConfig
 import com.capstone.venu.data.api.main.ApiServiceMain
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfigMain {/*
+class ApiConfigMain {
 
     companion object {
-        private const val BASE_URL = "https://0ace-103-189-201-90.ngrok-free.app/"
+        private const val BASE_URL = "https://66ea-103-189-201-90.ngrok-free.app"
 
         fun getApiMain(): ApiServiceML {
             val loggingInterceptor = HttpLoggingInterceptor().apply {
-                level = if (BuildCon.DEBUG) {
+                level = if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
                 } else {
                     HttpLoggingInterceptor.Level.NONE
@@ -32,6 +33,6 @@ class ApiConfigMain {/*
 
             return retrofit.create(ApiServiceML::class.java)
         }
-    }*/
+    }
 
 }

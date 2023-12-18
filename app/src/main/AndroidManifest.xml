@@ -44,9 +44,11 @@
             android:exported="false" />
         <activity
             android:name=".ui.auth.sign_up.SignUpActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".ui.auth.sign_in.SignInActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".ui.bookmark.BookmarkActivity"

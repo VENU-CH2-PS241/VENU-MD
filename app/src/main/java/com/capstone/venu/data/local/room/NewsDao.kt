@@ -1,0 +1,4 @@
+package com.capstone.venu.data.local.room
+
+class NewsDao {
+}
