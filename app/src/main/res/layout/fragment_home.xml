@@ -44,13 +44,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="90dp"
         android:backgroundTint="@color/RoyalBlue"
         android:contentDescription="@string/fab_topic"
         android:elevation="10dp"
         android:src="@drawable/ic_fab_burger"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_insetEdge="bottom"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -3,6 +3,4 @@
     <style name="Base.Theme.VENU" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/RoyalBlue</item>
     </style>
-
-
 </resources>

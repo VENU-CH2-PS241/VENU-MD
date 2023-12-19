@@ -12,9 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="6dp"
         app:cardCornerRadius="4dp">
 
@@ -26,16 +23,23 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="15dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <!--<de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivAvatar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:scaleType="centerCrop"
-                tools:src="@tools:sample/avatars"/>
+                tools:src="@tools:sample/avatars"/>-->
+
+            <ImageView
+                android:id="@+id/iv_user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_user_round" />
 
             <TextView
                 android:id="@+id/tv_username"
-                android:layout_width="285dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/username"
@@ -49,49 +53,38 @@
         android:id="@+id/btn_bookmark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
         android:background="@drawable/bg_btn_white_round_5"
         android:drawableStart="@drawable/ic_bookmark_bold"
         android:drawablePadding="15dp"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="15dp"
+        android:paddingHorizontal="24dp"
         android:text="@string/bookmarks"
         android:textAllCaps="false"
         android:textSize="18sp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/btn_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
         android:background="@drawable/bg_btn_white_round_5"
+        android:text="@string/dark_mode"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:drawableStart="@drawable/ic_theme"
         android:drawablePadding="15dp"
-        android:gravity="start|center_vertical"
-        android:paddingHorizontal="15dp"
-        android:text="@string/dark_mode"
-        android:textAllCaps="false"
-        android:textSize="18sp"/>
+        android:paddingHorizontal="24dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_subscribe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/bg_btn_white_round_5"
         android:drawableStart="@drawable/ic_subscribe"
         android:drawablePadding="15dp"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="15dp"
+        android:paddingHorizontal="24dp"
         android:text="@string/subscribe"
         android:textAllCaps="false"
         android:textSize="18sp"/>
@@ -100,15 +93,12 @@
         android:id="@+id/btn_feedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/bg_btn_white_round_5"
         android:drawableStart="@drawable/ic_email"
         android:drawablePadding="14dp"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="15dp"
+        android:paddingHorizontal="24dp"
         android:text="@string/critic_advices"
         android:textAllCaps="false"
         android:textSize="18sp"/>
@@ -117,15 +107,12 @@
         android:id="@+id/btn_faq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/bg_btn_white_round_5"
         android:drawableStart="@drawable/ic_faq"
         android:drawablePadding="16dp"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="15dp"
+        android:paddingHorizontal="24dp"
         android:text="@string/faq"
         android:textAllCaps="false"
         android:textSize="18sp"/>
@@ -134,15 +121,12 @@
         android:id="@+id/btn_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/bg_btn_white_round_5"
         android:drawableStart="@drawable/ic_venu"
         android:drawablePadding="10dp"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="12dp"
+        android:paddingHorizontal="22dp"
         android:text="@string/about_venu"
         android:textAllCaps="false"
         android:textSize="18sp"/>
@@ -151,15 +135,11 @@
         android:id="@+id/btn_sign_out"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="3dp"
         android:background="@drawable/bg_btn_white_round_5"
         android:drawableStart="@drawable/ic_sign_out"
         android:drawablePadding="15dp"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="15dp"
+        android:paddingHorizontal="24dp"
         android:text="@string/sign_out"
         android:textAllCaps="false"
         android:textSize="18sp"/>

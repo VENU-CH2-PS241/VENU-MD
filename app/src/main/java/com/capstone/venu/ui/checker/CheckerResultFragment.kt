@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.capstone.venu.R
-import com.capstone.venu.databinding.EmptyCheckerLayoutBinding
-import com.capstone.venu.databinding.FragmentCheckerBinding
-import com.capstone.venu.databinding.FragmentHomeBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.capstone.venu.data.local.dummy.NewsItem
+import com.capstone.venu.databinding.FragmentCheckerResultBinding
+import com.capstone.venu.ui.adapter.NewsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,11 +20,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [CheckerFragment.newInstance] factory method to
+ * Use the [CheckerResultFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CheckerFragment : Fragment() {
-    private lateinit var binding: EmptyCheckerLayoutBinding
+class CheckerResultFragment : Fragment() {
+    private lateinit var binding: FragmentCheckerResultBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -43,10 +41,10 @@ class CheckerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = EmptyCheckerLayoutBinding.inflate(layoutInflater)
+        binding = FragmentCheckerResultBinding.inflate(layoutInflater)
 
-        binding.ivChecker.setImageResource(R.drawable.img_checker)
-        binding.tvCheckerMessage.text = getString(R.string.checker_message)
+        binding.tvResult.text = getString(R.string.lorem_ipsum)
+        binding.tvRecommend.text = getString(R.string.recommend)
 
         return binding.root
     }
@@ -54,31 +52,24 @@ class CheckerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // FAB click
-        val fab: FloatingActionButton = binding.btnCheck
-        fab.setOnClickListener {
-            showBottomSheet()
-        }
+        // Dummy data
+        val dummyData = generateDummyData()
+
+        // RecyclerView and adapter
+        val recyclerView: RecyclerView = binding.rvListNews
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        val adapter = NewsAdapter(dummyData)
+        recyclerView.adapter = adapter
     }
 
-    private fun showBottomSheet() {
-        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_checker, null)
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(bottomSheetView)
+    private fun generateDummyData(): List<NewsItem> {
+        val dummyList = mutableListOf<NewsItem>()
 
-        val analyzeButton: Button = bottomSheetView.findViewById(R.id.btn_analyze)
+        dummyList.add(NewsItem(R.drawable.img_news, "Sample News Title 1", "80%", "Technology"))
+        dummyList.add(NewsItem(R.drawable.img_news, "Sample News Title 2", "65%", "Politics"))
+        dummyList.add(NewsItem(R.drawable.img_news, "Sample News Title 3", "90%", "Sports"))
 
-        analyzeButton.setOnClickListener {
-            val fragmentChecker = CheckerResultFragment()
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, fragmentChecker)
-            transaction.addToBackStack(null)
-            transaction.commit()
-
-            bottomSheetDialog.dismiss()
-        }
-
-        bottomSheetDialog.show()
+        return dummyList
     }
 
     companion object {
@@ -88,12 +79,12 @@ class CheckerFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment CheckerFragment.
+         * @return A new instance of fragment CheckerResultFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            CheckerFragment().apply {
+            CheckerResultFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

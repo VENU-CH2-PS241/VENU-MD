@@ -81,4 +81,6 @@
 
     <!--web client id-->
     <string name="default_web_client_id">1033764408342-f0jd02ipb6vcuuidbs8ap2j0i85b6g4k.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
