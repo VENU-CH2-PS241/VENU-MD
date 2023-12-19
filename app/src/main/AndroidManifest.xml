@@ -31,31 +31,28 @@
             android:exported="false" />
         <activity
             android:name=".ui.splash_screen.SplashScreenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.VENU">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/Theme.VENU"/>
         <activity
             android:name=".ui.advertisement.AdvertisementActivity"
             android:exported="false" />
         <activity
             android:name=".ui.auth.sign_up.SignUpActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".ui.auth.sign_in.SignInActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".ui.bookmark.BookmarkActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="false"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
     </application>
 
 </manifest>
