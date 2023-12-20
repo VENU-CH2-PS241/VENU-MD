@@ -1,4 +1,4 @@
-package com.capstone.venu.data
+package com.capstone.venu.data.temp
 
 data class NewsResponse(
 	val data: List<NewsDataItem>

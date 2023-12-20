@@ -4,18 +4,16 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.capstone.venu.R
 import com.capstone.venu.databinding.ActivitySignUpBinding
 import com.capstone.venu.ui.auth.sign_in.SignInActivity
-import com.capstone.venu.ui.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 
 class SignUpActivity : AppCompatActivity() {
@@ -59,7 +57,6 @@ class SignUpActivity : AppCompatActivity() {
 
         // Sign-up button click
         binding.btnSignup.setOnClickListener {
-            processSignUp()
             validateData()
         }
 
@@ -70,58 +67,13 @@ class SignUpActivity : AppCompatActivity() {
 
         // "Already have an account?" text click
         binding.tvSignupBtn.setOnClickListener {
-            startActivity(Intent(this, SignInActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
             finish()
         }
 
 //        setupAction()
     }
 
-    private fun processSignUp() {
-
-        /*val inputUsername = binding.usernameEdtxt.text.toString()
-        val inputEmail = binding.emailEdtxt.text.toString()
-        val inputPassword = binding.passEdtxt.text.toString()
-        val inputConpass = binding.conpassEdtxt.text.toString()
-
-        if (confirmPassword(inputPassword, inputConpass)) {
-            auth = FirebaseAuth.getInstance() // Inisialisasi objek auth jika belum dilakukan sebelumnya
-
-            auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val userUpdateProfile = userProfileChangeRequest {
-                            displayName = inputUsername
-                        }
-                        val user = auth.currentUser
-                        user?.updateProfile(userUpdateProfile)
-                            ?.addOnCompleteListener {
-                                navigateToSignInActivity()
-                            }
-                            ?.addOnFailureListener { error2 ->
-                                Toast.makeText(this, error2.localizedMessage, LENGTH_SHORT).show()
-                            }
-                    }
-                }
-                .addOnFailureListener { error ->
-                    Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
-                }
-        } else {
-            // Password tidak cocok, berikan pesan kesalahan atau lakukan tindakan yang sesuai
-            Toast.makeText(this, "Password and Confirm Password do not match", LENGTH_SHORT).show()
-        }
-    }
-
-    private fun confirmPassword(password: String, confirmPassword: String): Boolean {
-        // Fungsi untuk memeriksa apakah password dan confirm password cocok
-        return password == confirmPassword
-    }
-
-    private fun navigateToSignInActivity() {
-        startActivity(Intent(this, SignInActivity::class.java))
-        // Tambahkan finish() jika ingin menutup Activity SignUp setelah pindah ke SignInActivity
-        finish()*/
-    }
 
     private var inputUsername = ""
     private var inputEmail = ""
@@ -185,8 +137,8 @@ class SignUpActivity : AppCompatActivity() {
             .setValue(hashMap)
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "Account created...", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@SignUpActivity, SignInActivity::class.java))
+                Toast.makeText(this, "pindah ke sign in...", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, SignInActivity::class.java))
                 finish()
             }
             .addOnFailureListener { e ->
@@ -195,85 +147,4 @@ class SignUpActivity : AppCompatActivity() {
             }
 
     }
-
-    private fun navigateToMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
-        // Tambahkan finish() jika ingin menutup Activity SignIn setelah pindah ke MainActivity
-        finish()
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == RC_SIGN_IN) {
-//            menangani proses sign in google
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-//                jika berhasil
-                val account = task.getResult(ApiException::class.java)!!
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                e.printStackTrace()
-                Toast.makeText(applicationContext, e.localizedMessage, Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credentian = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credentian)
-            .addOnSuccessListener {
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-            .addOnFailureListener { error ->
-                Toast.makeText(this, error.localizedMessage, Toast.LENGTH_SHORT).show()
-            }
-
-    }
-
-
-    //    nanti
-    /*private fun setupAction() {
-        binding.apply {
-            btnSignup.setOnClickListener {
-                if (validateForm()) {
-                    val username = username.text.toString()
-                    val email = email.text.toString()
-                    val password = pass.text.toString()
-                    val conPass = conpass.text.toString()
-                    val intent = Intent(
-                        this@SignUpActivity,
-                        SignInActivity::class.java
-                    )
-                    intent.flags =
-                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                }
-            }
-        }
-    }
-
-    private fun validateForm(): Boolean {
-        binding.apply {
-            val validates = listOf(
-                username.validate("Username", ValidateType.REQUIRED),
-                email.validate("Email", ValidateType.REQUIRED),
-                email.validate("Email", ValidateType.EMAIL),
-                pass.validate("Password", ValidateType.REQUIRED),
-                pass.validate("Password", ValidateType.MIN_CHAR),
-                conpass.validate(
-                    "Confirm Password",
-                    ValidateType.REQUIRED,
-                    passwordEditText = conpass
-                ),
-                conpass.validate(
-                    "Confirm Password",
-                    ValidateType.CONFIRM_PASSWORD,
-                    passwordEditText = conpass
-                ),
-            )
-            return !validates.contains(false)
-        }
-    }*/
 }

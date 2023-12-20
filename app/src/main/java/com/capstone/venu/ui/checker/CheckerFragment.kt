@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import com.capstone.venu.R
+import com.capstone.venu.databinding.EmptyCheckerLayoutBinding
+import com.capstone.venu.databinding.FragmentCheckerBinding
+import com.capstone.venu.databinding.FragmentHomeBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +26,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class CheckerFragment : Fragment() {
+    private lateinit var binding: EmptyCheckerLayoutBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,8 +43,42 @@ class CheckerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.empty_checker_layout, container, false)
+        binding = EmptyCheckerLayoutBinding.inflate(layoutInflater)
+
+        binding.ivChecker.setImageResource(R.drawable.img_checker)
+        binding.tvCheckerMessage.text = getString(R.string.checker_message)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // FAB click
+        val fab: FloatingActionButton = binding.btnCheck
+        fab.setOnClickListener {
+            showBottomSheet()
+        }
+    }
+
+    private fun showBottomSheet() {
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_checker, null)
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        val analyzeButton: Button = bottomSheetView.findViewById(R.id.btn_analyze)
+
+        analyzeButton.setOnClickListener {
+            val fragmentChecker = CheckerResultFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragmentChecker)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+            bottomSheetDialog.dismiss()
+        }
+
+        bottomSheetDialog.show()
     }
 
     companion object {

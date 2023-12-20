@@ -1,4 +1,4 @@
-package com.capstone.venu.data.api.ml
+package com.capstone.venu.data.api.mock
 
 import com.capstone.venu.BuildConfig
 import com.capstone.venu.data.api.main.ApiServiceMain
@@ -7,12 +7,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfigML {
+class ApiConfigMock {
 
     companion object {
-        private const val BASE_URL = "https://venu-project-408000.as.r.appspot.com/"
+        private const val BASE_URL = "https://65822c7c02f747c836791f6a.mockapi.io/api/"
 
-        fun getApiMain(): ApiServiceMain {
+        fun getMockApi(): ApiServiceMock {
             val loggingInterceptor = HttpLoggingInterceptor().apply {
                 level = if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
@@ -31,8 +31,7 @@ class ApiConfigML {
                 .client(okHttpClient)
                 .build()
 
-            return retrofit.create(ApiServiceMain::class.java)
+            return retrofit.create(ApiServiceMock::class.java)
         }
     }
-
 }

@@ -1,6 +1,4 @@
-package com.capstone.venu.data
-
-import org.checkerframework.checker.units.qual.A
+package com.capstone.venu.data.temp
 
 data class CategoriesResponse(
 	val data: List<CategoriesDataItem>
@@ -14,7 +12,7 @@ data class CategoriesAttributes(
 )
 
 data class CategoriesDataItem(
-	val attributes: CategoriesAttributes,
-	val id: Int
+    val attributes: CategoriesAttributes,
+    val id: Int
 )
 

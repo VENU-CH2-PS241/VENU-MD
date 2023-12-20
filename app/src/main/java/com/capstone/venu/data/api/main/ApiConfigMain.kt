@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfigMain {
 
     companion object {
-        private const val BASE_URL = "https://0ace-103-189-201-90.ngrok-free.app/"
+        private const val BASE_URL = "https://65822c7c02f747c836791f6a.mockapi.io/api/"
 
         fun getApiMain(): ApiServiceMain {
             val loggingInterceptor = HttpLoggingInterceptor().apply {

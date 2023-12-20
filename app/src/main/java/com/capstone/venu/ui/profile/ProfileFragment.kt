@@ -1,34 +1,24 @@
 package com.capstone.venu.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import com.capstone.venu.R
+import com.capstone.venu.ui.auth.sign_in.SignInActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.SignInMethodQueryResult
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var auth: FirebaseAuth
+    private lateinit var tvUsername: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +28,66 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Initialize FirebaseAuth
+        auth = FirebaseAuth.getInstance()
+
+        // Initialize TextView for displaying username or email
+        tvUsername = view.findViewById(R.id.tv_username)
+
+        // Add a listener to the sign-out button
+        val btnSignOut: Button = view.findViewById(R.id.btn_sign_out)
+        btnSignOut.setOnClickListener {
+            logout()
+        }
+
+        loadUserInfo()
+    }
+
+    private fun loadUserInfo() {
+        val currentUser = auth.currentUser
+
+        if (currentUser != null) {
+            // User is signed in, update the TextView with the user's email
+            val userEmail = currentUser.email
+            tvUsername.text = userEmail
+        } else {
+            // User is not signed in, handle it accordingly
+            tvUsername.text = getString(R.string.username)
+        }
+    }
+
+    private fun logout() {
+        // Check if the user signed in with Google
+        val currentUser = auth.currentUser
+        currentUser?.getIdToken(false)?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val signInMethods = task.result?.signInProvider
+                if (signInMethods?.contains(GoogleAuthProvider.PROVIDER_ID) == true) {
+                    // If the user signed in with Google, sign out from Google
+                    val googleSignInClient = GoogleSignIn.getClient(requireContext(), GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    googleSignInClient.signOut().addOnCompleteListener {
+                        // After signing out from Google, sign out from Firebase
+                        signOutFirebase()
+                    }
+                } else {
+                    // If the user didn't sign in with Google, sign out from Firebase directly
+                    signOutFirebase()
                 }
             }
+        }
+    }
+
+    private fun signOutFirebase() {
+        // Sign out from Firebase
+        auth.signOut()
+
+        // Redirect to the sign-in page or the home page of the application
+        val intent = Intent(requireContext(), SignInActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
     }
 }

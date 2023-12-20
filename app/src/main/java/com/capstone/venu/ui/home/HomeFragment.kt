@@ -1,60 +1,73 @@
 package com.capstone.venu.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.capstone.venu.R
+import com.capstone.venu.data.api.mock.ApiConfigMock
+import com.capstone.venu.data.response.mock.ArticleListMockResponse
+import com.capstone.venu.databinding.FragmentHomeBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentHomeBinding
+    private val apiServiceMock = ApiConfigMock.getMockApi()
+    private lateinit var listData: List<ArticleListMockResponse>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Use lifecycleScope.launch to launch a coroutine
+        lifecycleScope.launch {
+            try {
+                // Call generateListData and get the list of articles
+                listData = generateListData()
+
+                // RecyclerView and adapter
+                val recyclerView: RecyclerView = binding.rvListNews
+                recyclerView.layoutManager = LinearLayoutManager(context)
+                val adapter = HomeAdapter(listData)
+                recyclerView.adapter = adapter
+
+                // FAB click
+                val fab: FloatingActionButton = binding.btnTopic
+                fab.setOnClickListener {
+                    showBottomSheet()
                 }
+            } catch (e: HttpException) {
+                Log.e("HomeFragment", "Error: ${e.message}")
+                // For example, you can show an error message to the user
             }
+        }
+    }
+
+    private suspend fun generateListData(): List<ArticleListMockResponse> {
+        // Placeholder implementation, replace with your actual API call
+        return apiServiceMock.getnewslist()
+    }
+
+    private fun showBottomSheet() {
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_topic, null)
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        bottomSheetDialog.show()
     }
 }

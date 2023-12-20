@@ -8,18 +8,17 @@ import com.capstone.venu.databinding.ActivityMainBinding
 import com.capstone.venu.ui.checker.CheckerFragment
 import com.capstone.venu.ui.home.HomeFragment
 import com.capstone.venu.ui.profile.ProfileFragment
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
-    private lateinit var auth: FirebaseAuth
+//    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val firebaseUser = auth.currentUser
+//        val firebaseUser = auth.currentUser
 
         setupBottomNavigationView()
 
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.botNavView,fragment)
+        fragmentTransaction.replace(R.id.container,fragment)
         fragmentTransaction.commit()
     }
 }
