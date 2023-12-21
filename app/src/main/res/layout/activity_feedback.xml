@@ -17,8 +17,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_criticadvice"
@@ -27,7 +26,8 @@
                 android:contentDescription="@string/icon_appbar"
                 android:text="@string/critic_advices"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_gravity="center" />
 
         </com.google.android.material.appbar.MaterialToolbar>
 

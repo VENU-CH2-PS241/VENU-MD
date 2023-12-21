@@ -46,6 +46,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -54,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="4dp"
-                android:justificationMode="inter_word"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="@string/news_title" />
@@ -63,7 +63,6 @@
                 android:id="@+id/tv_sourcedet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_titledet"
                 android:layout_marginBottom="4dp"
                 android:textColor="@color/RoyalBlue"
                 android:textSize="14sp"
@@ -74,7 +73,6 @@
                 android:id="@+id/tv_topicdet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_sourcedet"
                 android:layout_marginBottom="4dp"
                 android:textSize="14sp"
                 tools:text="@string/news_topic" />
@@ -83,8 +81,7 @@
                 android:id="@+id/iv_det"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_below="@id/tv_topicdet"
-                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
                 android:layout_marginTop="8dp"
                 tools:src="@tools:sample/avatars" />
 
@@ -92,7 +89,6 @@
                 android:id="@+id/tv_descdet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_det"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:justificationMode="inter_word"
@@ -102,7 +98,6 @@
                 android:id="@+id/tv_recommend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:justificationMode="inter_word"
                 android:text="@string/recommend"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -118,20 +113,16 @@
                 android:id="@+id/tv_descdet1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_det"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:justificationMode="inter_word"
                 tools:text="@string/lorem_ipsum" />
 
             <TextView
                 android:id="@+id/tv_descdet2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_det"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:justificationMode="inter_word"
                 tools:text="@string/lorem_ipsum" />
 
         </LinearLayout>
