@@ -39,7 +39,7 @@ class HomeAdapter(private val newsList: List<ArticleListMockResponse>) :
 
             binding.root.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-                intent.putExtra("Detail", newsItem.id)
+                intent.putExtra("Detail", newsItem.title)
                 itemView.context.startActivity(intent)
             }
 

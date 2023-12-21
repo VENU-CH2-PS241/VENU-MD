@@ -10,14 +10,14 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginBottom="8dp"
         android:background="@color/white"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:layout_marginBottom="8dp">
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <!--<ImageButton
             android:layout_width="wrap_content"
@@ -35,16 +35,18 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="15dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_titledet"
@@ -63,10 +65,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_titledet"
                 android:layout_marginBottom="4dp"
-                tools:text="@string/source"
-                android:textSize="14sp"
                 android:textColor="@color/RoyalBlue"
-                android:textStyle="bold"/>
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="@string/source" />
 
             <TextView
                 android:id="@+id/tv_topicdet"
@@ -74,8 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_sourcedet"
                 android:layout_marginBottom="4dp"
-                tools:text="@string/news_topic"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="@string/news_topic" />
 
             <ImageView
                 android:id="@+id/iv_det"
@@ -94,7 +96,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:justificationMode="inter_word"
-                tools:text="@string/lorem_ipsum"/>
+                tools:text="@string/lorem_ipsum" />
 
             <TextView
                 android:id="@+id/tv_recommend"
@@ -103,14 +105,34 @@
                 android:justificationMode="inter_word"
                 android:text="@string/recommend"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list_news"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 tools:listitem="@layout/item_news" />
+
+            <TextView
+                android:id="@+id/tv_descdet1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_det"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:justificationMode="inter_word"
+                tools:text="@string/lorem_ipsum" />
+
+            <TextView
+                android:id="@+id/tv_descdet2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_det"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:justificationMode="inter_word"
+                tools:text="@string/lorem_ipsum" />
 
         </LinearLayout>
     </ScrollView>

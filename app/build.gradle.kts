@@ -11,7 +11,7 @@ plugins {
 android {
     signingConfigs {
         getByName("debug") {
-            storeFile = file("C:\\Users\\vanya\\AndroidStudioProjects\\MyKeyStore\\venu.jks")
+            storeFile = file("C:\\Users\\irfan\\AndroidStudioProjects\\MyKeyStore\\venu.jks")
             storePassword = "v3nucapston3"
             keyAlias = "venuappkey"
             keyPassword = "v3nucapston3"

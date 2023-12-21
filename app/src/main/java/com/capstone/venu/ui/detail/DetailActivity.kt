@@ -3,13 +3,14 @@ package com.capstone.venu.ui.detail
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.capstone.venu.R
-import com.capstone.venu.data.api.mock.ApiConfigMock
+import com.capstone.venu.data.api.news.ApiConfigNews
 import com.capstone.venu.data.response.mock.ArticleDetailMockResponse
 import com.capstone.venu.data.response.mock.ArticleListMockResponse
 import com.capstone.venu.databinding.ActivityDetailBinding
@@ -22,7 +23,7 @@ import retrofit2.HttpException
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-    private val apiServiceMock = ApiConfigMock.getMockApi()
+    private val apiServiceNews = ApiConfigNews.getNewsApi()
     private lateinit var listData: List<ArticleListMockResponse>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,19 +67,23 @@ class DetailActivity : AppCompatActivity() {
 
     private suspend fun generateListData(): List<ArticleListMockResponse> {
         // Placeholder implementation, replace with your actual API call
-        return apiServiceMock.getnewslist()
+        return apiServiceNews.getnewslist()
     }
 
     private fun loadArticleDetail(articleId: String) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                val detailResponse = apiServiceMock.getnewsdetail(articleId)
+                val detailResponse = apiServiceNews.getnewsdetail(articleId)
                 displayArticleDetail(detailResponse)
             } catch (e: Exception) {
                 // Handle error, for example show a toast
                 e.printStackTrace()
+                showToast("Error loading article details: ${e.message}")
             }
         }
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(this@DetailActivity, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun displayArticleDetail(detail: ArticleDetailMockResponse) {
@@ -94,7 +99,7 @@ class DetailActivity : AppCompatActivity() {
             tvDescdet.text = detail.description
 
             // Hide the progress bar
-            pbDetail.visibility = View.GONE
+            pbDetail.visibility = View.VISIBLE
         }
     }
 

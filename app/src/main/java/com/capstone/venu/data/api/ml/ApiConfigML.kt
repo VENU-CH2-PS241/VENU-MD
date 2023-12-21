@@ -12,7 +12,7 @@ class ApiConfigML {
     companion object {
         private const val BASE_URL = "https://venu-project-408000.as.r.appspot.com/"
 
-        fun getApiMain(): ApiServiceMain {
+        fun getApiML(): ApiServiceML {
             val loggingInterceptor = HttpLoggingInterceptor().apply {
                 level = if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
@@ -31,7 +31,7 @@ class ApiConfigML {
                 .client(okHttpClient)
                 .build()
 
-            return retrofit.create(ApiServiceMain::class.java)
+            return retrofit.create(ApiServiceML::class.java)
         }
     }
 

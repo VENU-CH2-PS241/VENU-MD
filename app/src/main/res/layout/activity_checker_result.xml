@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.checker.CheckerResultFragment">
+    tools:context=".ui.CheckerResultActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -19,12 +19,14 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <ImageButton
+            android:id="@+id/iv_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_back"
             android:contentDescription="@string/back_button" />
 
         <TextView
+            android:id="@+id/tv_news_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
