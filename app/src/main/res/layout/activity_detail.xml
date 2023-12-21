@@ -35,42 +35,55 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/my_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">>
+        app:layout_constraintStart_toStartOf="parent" >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_margin="15dp">
 
             <TextView
                 android:id="@+id/tv_titledet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true" />
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="4dp"
+                android:justificationMode="inter_word"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@string/news_title" />
 
             <TextView
                 android:id="@+id/tv_sourcedet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_titledet" />
+                android:layout_below="@id/tv_titledet"
+                android:layout_marginBottom="4dp"
+                tools:text="@string/source"
+                android:textSize="14sp"
+                android:textColor="@color/RoyalBlue"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tv_topicdet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_sourcedet" />
+                android:layout_below="@id/tv_sourcedet"
+                android:layout_marginBottom="4dp"
+                tools:text="@string/news_topic"
+                android:textSize="14sp" />
 
             <ImageView
                 android:id="@+id/iv_det"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_below="@id/tv_topicdet"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="8dp"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
@@ -78,13 +91,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_det"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:justificationMode="inter_word"
+                tools:text="@string/lorem_ipsum"/>
 
+            <TextView
+                android:id="@+id/tv_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:text="@string/recommend"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
-        </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_list_news"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="8dp"
+                tools:listitem="@layout/item_news" />
+
+        </LinearLayout>
     </ScrollView>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_topic"

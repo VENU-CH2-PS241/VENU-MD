@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.capstone.venu.R
 import com.capstone.venu.ui.auth.sign_in.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -19,12 +20,12 @@ import com.capstone.venu.databinding.FragmentProfileBinding
 import com.capstone.venu.ui.about.AboutActivity
 import com.capstone.venu.ui.advertisement.AdvertisementActivity
 import com.capstone.venu.ui.bookmark.BookmarkActivity
+import com.capstone.venu.ui.detail_profile.DetailProfileActivity
 import com.capstone.venu.ui.faq.FaqActivity
 import com.capstone.venu.ui.feedback.FeedbackActivity
 
 class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var tvUsername: TextView
     private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
@@ -41,12 +42,18 @@ class ProfileFragment : Fragment() {
         // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance()
 
+        val cvUsername: CardView = binding.cardView
         val btnBookmark: Button = binding.btnBookmark
         val btnSubscribe: Button = binding.btnSubscribe
         val btnFeedback: Button = binding.btnFeedback
         val btnFaq: Button = binding.btnFaq
         val btnAbout: Button = binding.btnAbout
         val btnSignout: Button = binding.btnSignOut
+
+        cvUsername.setOnClickListener {
+            val intent = Intent(requireContext(), DetailProfileActivity::class.java)
+            startActivity((intent))
+        }
 
         btnBookmark.setOnClickListener {
             val intent = Intent(requireContext(), BookmarkActivity::class.java)
@@ -82,6 +89,8 @@ class ProfileFragment : Fragment() {
 
     private fun loadUserInfo() {
         val currentUser = auth.currentUser
+
+        val tvUsername: TextView = binding.tvUsername
 
         if (currentUser != null) {
             // User is signed in, update the TextView with the user's email

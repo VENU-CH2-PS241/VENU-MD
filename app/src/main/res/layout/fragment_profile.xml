@@ -62,7 +62,7 @@
         android:textAllCaps="false"
         android:textSize="18sp"/>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
+<!--    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/btn_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
         android:textStyle="bold"
         android:drawableStart="@drawable/ic_theme"
         android:drawablePadding="15dp"
-        android:paddingHorizontal="24dp"/>
+        android:paddingHorizontal="24dp"/>-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_subscribe"

@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/icon_appbar"
-                tools:text="@string/critic_advices"
+                android:text="@string/critic_advices"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
