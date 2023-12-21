@@ -64,6 +64,7 @@
     <string name="subject">Subject</string>
     <string name="description">Description</string>
     <string name="send">SEND</string>
+    <string name="subscription">Subscription</string>
 
     <!-- FAQ and Answers -->
     <string name="faq_long">Frequently Asked Questions</string>

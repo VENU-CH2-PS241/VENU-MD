@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.bookmark.BookmarkActivity">
 
-    <ImageButton
+<!--    <ImageButton
         android:id="@+id/home_appbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,34 @@
         android:background="@drawable/ic_back"
         android:contentDescription="@string/back_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/home_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/icon_appbar"
+                tools:text="@string/bookmarks"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list_news"

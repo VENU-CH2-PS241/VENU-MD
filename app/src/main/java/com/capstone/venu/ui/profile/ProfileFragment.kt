@@ -15,17 +15,24 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.SignInMethodQueryResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.capstone.venu.databinding.FragmentProfileBinding
+import com.capstone.venu.ui.about.AboutActivity
+import com.capstone.venu.ui.advertisement.AdvertisementActivity
+import com.capstone.venu.ui.bookmark.BookmarkActivity
+import com.capstone.venu.ui.faq.FaqActivity
+import com.capstone.venu.ui.feedback.FeedbackActivity
 
 class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var tvUsername: TextView
+    private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding = FragmentProfileBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,12 +41,39 @@ class ProfileFragment : Fragment() {
         // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance()
 
-        // Initialize TextView for displaying username or email
-        tvUsername = view.findViewById(R.id.tv_username)
+        val btnBookmark: Button = binding.btnBookmark
+        val btnSubscribe: Button = binding.btnSubscribe
+        val btnFeedback: Button = binding.btnFeedback
+        val btnFaq: Button = binding.btnFaq
+        val btnAbout: Button = binding.btnAbout
+        val btnSignout: Button = binding.btnSignOut
 
-        // Add a listener to the sign-out button
-        val btnSignOut: Button = view.findViewById(R.id.btn_sign_out)
-        btnSignOut.setOnClickListener {
+        btnBookmark.setOnClickListener {
+            val intent = Intent(requireContext(), BookmarkActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnSubscribe.setOnClickListener {
+            val intent = Intent(requireContext(), AdvertisementActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnFeedback.setOnClickListener {
+            val intent = Intent(requireContext(), FeedbackActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnFaq.setOnClickListener {
+            val intent = Intent(requireContext(), FaqActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnAbout.setOnClickListener {
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnSignout.setOnClickListener {
             logout()
         }
 
