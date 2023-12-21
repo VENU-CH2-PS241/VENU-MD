@@ -17,24 +17,25 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/icon_appbar"
-                tools:text="@string/subscription"
+                android:text="@string/subscription"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
 
         </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:id="@+id/iv_ads"
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,6 +43,28 @@
         app:layout_constraintTop_toBottomOf="@id/home_appbar"
         app:layout_constraintVertical_bias="0.3"
         android:background="@drawable/img_ads" />
+
+    <TextView
+        android:id="@+id/tv_ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_ads"
+        android:text="@string/ads1"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_ads"
+        android:text="@string/ads2"
+        android:textAlignment="center" />
 
     <ProgressBar
         android:id="@+id/pbAdvertisement"

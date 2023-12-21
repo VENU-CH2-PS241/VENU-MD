@@ -10,7 +10,6 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +82,7 @@
                 android:layout_height="200dp"
                 android:layout_below="@id/tv_topicdet"
                 android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
                 android:layout_marginTop="8dp"
                 tools:src="@tools:sample/avatars" />
 

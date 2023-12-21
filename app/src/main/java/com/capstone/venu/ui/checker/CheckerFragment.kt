@@ -45,9 +45,6 @@ class CheckerFragment : Fragment() {
     ): View? {
         binding = EmptyCheckerLayoutBinding.inflate(layoutInflater)
 
-        binding.ivChecker.setImageResource(R.drawable.img_checker)
-        binding.tvCheckerMessage.text = getString(R.string.checker_message)
-
         return binding.root
     }
 
