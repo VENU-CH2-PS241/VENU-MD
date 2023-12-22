@@ -1,30 +1,30 @@
-package com.capstone.venu.ui.profile
-
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import com.capstone.venu.R
-import com.capstone.venu.ui.auth.sign_in.SignInActivity
+import com.capstone.venu.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.SignInMethodQueryResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.capstone.venu.databinding.FragmentProfileBinding
 import com.capstone.venu.ui.about.AboutActivity
 import com.capstone.venu.ui.advertisement.AdvertisementActivity
+import com.capstone.venu.ui.auth.sign_in.SignInActivity
 import com.capstone.venu.ui.bookmark.BookmarkActivity
 import com.capstone.venu.ui.detail_profile.DetailProfileActivity
 import com.capstone.venu.ui.faq.FaqActivity
 import com.capstone.venu.ui.feedback.FeedbackActivity
 
 class ProfileFragment : Fragment() {
+
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentProfileBinding
 
@@ -52,7 +52,7 @@ class ProfileFragment : Fragment() {
 
         cvUsername.setOnClickListener {
             val intent = Intent(requireContext(), DetailProfileActivity::class.java)
-            startActivity((intent))
+            startActivity(intent)
         }
 
         btnBookmark.setOnClickListener {
@@ -81,7 +81,7 @@ class ProfileFragment : Fragment() {
         }
 
         btnSignout.setOnClickListener {
-            logout()
+            showLogoutConfirmationDialog()
         }
 
         loadUserInfo()
@@ -100,6 +100,21 @@ class ProfileFragment : Fragment() {
             // User is not signed in, handle it accordingly
             tvUsername.text = getString(R.string.username)
         }
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(getString(R.string.logout_confirmation_title))
+            .setPositiveButton(getString(R.string.logout_confirmation_yes)) { dialog, _ ->
+                dialog.dismiss()
+                logout()
+            }
+            .setNegativeButton(getString(R.string.logout_confirmation_no)) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
     private fun logout() {

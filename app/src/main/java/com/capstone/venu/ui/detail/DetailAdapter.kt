@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstone.venu.data.response.mock.ArticleListMockResponse
+import com.capstone.venu.data.response.news.ArticleListNewsResponse
 import com.capstone.venu.databinding.ItemNewsBinding
 
-class DetailAdapter(private val newsList: List<ArticleListMockResponse>) :
+class DetailAdapter(private val newsList: List<ArticleListNewsResponse>) :
     RecyclerView.Adapter<DetailAdapter.NewsViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -28,7 +28,7 @@ class DetailAdapter(private val newsList: List<ArticleListMockResponse>) :
     class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(newsItem: ArticleListMockResponse) {
+        fun bind(newsItem: ArticleListNewsResponse) {
             // Trim the title if it has more than 6 words
             val trimmedTitle = trimTitle(newsItem.title, 6)
 
@@ -42,7 +42,7 @@ class DetailAdapter(private val newsList: List<ArticleListMockResponse>) :
 
             binding.root.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-                intent.putExtra("Detail", newsItem.title)
+                intent.putExtra("Detail", newsItem.id)
                 itemView.context.startActivity(intent)
             }
         }

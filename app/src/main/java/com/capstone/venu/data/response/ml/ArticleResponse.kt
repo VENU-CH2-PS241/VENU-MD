@@ -1,4 +1,4 @@
-    package com.capstone.venu.data.response.home
+    package com.capstone.venu.data.response.ml
 
     import android.os.Parcelable
     import com.google.gson.annotations.SerializedName

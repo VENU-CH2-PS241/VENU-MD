@@ -70,8 +70,6 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this, SignUpActivity::class.java))
             finish()
         }
-
-//        setupAction()
     }
 
 
@@ -122,22 +120,19 @@ class SignUpActivity : AppCompatActivity() {
 
         progressDialog.setMessage("Saving user info...")
 
-        val timestamp = System.currentTimeMillis()
-
         val uid = auth.uid
 
         val hashMap: HashMap<String, Any?> = HashMap()
         hashMap["uid"] = uid
         hashMap["username"] = inputUsername
         hashMap["email"] = inputEmail
-        hashMap["timestamp"] = timestamp
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.child(uid!!)
             .setValue(hashMap)
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "pindah ke sign in...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Account Created...", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, SignInActivity::class.java))
                 finish()
             }

@@ -1,13 +1,23 @@
 package com.capstone.venu.data.api.main
 
-import com.capstone.venu.data.temp.NewsArticleResponse
-import retrofit2.Response
 import retrofit2.http.GET
 
 interface ApiServiceMain {
-    @GET("newsarticle")
-    suspend fun getNewsArticles(
+    @GET("/api/categories")
+    suspend fun getCategories()
 
-    ): Response<NewsArticleResponse>
+    @GET("/api/categories/{id}")
+    suspend fun getCategoriesId()
+
+    @GET("/api/news1s")
+    suspend fun getNews()
+
+    @GET("/api/recommendations")
+    suspend fun getRecommendations()
+
+    @GET("/api/predictions")
+    suspend fun getPredictions()
+
+
 }
 

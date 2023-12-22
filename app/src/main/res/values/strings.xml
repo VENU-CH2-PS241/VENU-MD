@@ -65,6 +65,10 @@
     <string name="description">Description</string>
     <string name="send">SEND</string>
     <string name="subscription">Subscription</string>
+    <string name="logout_confirmation_title">Are You Sure Want To Sign Out?</string>
+    <string name="logout_confirmation_message">Please Choose Your Preference</string>
+    <string name="logout_confirmation_yes">YES</string>
+    <string name="logout_confirmation_no">NO</string>
 
     <!-- FAQ and Answers -->
     <string name="faq_long">Frequently Asked Questions</string>
@@ -87,4 +91,12 @@
     <string name="source">Source</string>
     <string name="ads1">Cek Hoax Tanpa Batas!</string>
     <string name="ads2">Langganan sekarang untuk perlindungan penuh.</string>
+
+    <string name="testingtxt">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Proin vel velit id elit facilisis pellentesque eu eu turpis. Curabitur ut tincidunt quam, non euismod massa. Duis luctus mauris id turpis fermentum, eget interdum tortor laoreet. Integer eu odio ut risus malesuada fermentum id nec turpis. Sed vulputate, arcu ut venenatis fringilla, sapien arcu auctor lectus, in ultrices odio leo non turpis. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus sit amet nibh augue. Integer fringilla libero vel sapien fermentum scelerisque.
+
+        Aliquam erat volutpat. Ut cursus euismod turpis, vel ullamcorper odio tincidunt vel. Mauris ullamcorper, justo a euismod suscipit, felis purus suscipit orci, vel fermentum erat sem in leo. Quisque eleifend purus eu scelerisque bibendum. Maecenas ut malesuada felis, nec bibendum libero. Nulla facilisi. Fusce eget augue id justo consequat laoreet. Phasellus gravida, libero ac vehicula hendrerit, nisl nisi euismod orci, eget commodo elit turpis vel dui. Integer efficitur, dolor eu tristique iaculis, metus leo luctus elit, eget tincidunt metus velit vitae eros. Fusce eu nulla sit amet nisi luctus vulputate. Suspendisse id justo eu lacus euismod feugiat. Vivamus auctor, risus ut scelerisque bibendum, ligula purus tristique quam, non imperdiet quam purus non augue.
+    </string>
+    <string name="checking_output">Checking Output</string>
+
 </resources>

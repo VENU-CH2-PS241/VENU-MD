@@ -68,7 +68,6 @@ class SignInActivity : AppCompatActivity() {
 
         // Sign-in button click
         binding.btnSignin.setOnClickListener {
-            //processSignIn()
             validateData()
         }
 
@@ -146,7 +145,6 @@ class SignInActivity : AppCompatActivity() {
                 }
             })
         } else {
-            // FirebaseUser null, berikan pesan atau ambil tindakan yang sesuai
             progressDialog.dismiss()
             Toast.makeText(this@SignInActivity, "User not authenticated", Toast.LENGTH_SHORT).show()
         }
@@ -157,7 +155,7 @@ class SignInActivity : AppCompatActivity() {
         val inputEmail = binding.emailEdtxt.text.toString()
         val inputPassword = binding.passEdtxt.text.toString()
 
-        auth = FirebaseAuth.getInstance() // Pastikan objek auth sudah diinisialisasi
+        auth = FirebaseAuth.getInstance()
 
         auth.signInWithEmailAndPassword(inputEmail, inputPassword)
             .addOnCompleteListener { task ->
@@ -179,7 +177,6 @@ class SignInActivity : AppCompatActivity() {
 
     private fun navigateToMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
-        // Tambahkan finish() jika ingin menutup Activity SignIn setelah pindah ke MainActivity
         finish()
     }
 

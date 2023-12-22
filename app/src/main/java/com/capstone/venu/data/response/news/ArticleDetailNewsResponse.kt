@@ -1,11 +1,11 @@
-package com.capstone.venu.data.response.mock
+package com.capstone.venu.data.response.news
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ArticleDetailMockResponse(
+data class ArticleDetailNewsResponse(
 	@SerializedName("image") val image: String,
 	@SerializedName("description") val description: String,
 	@SerializedName("topic") val topic: String,

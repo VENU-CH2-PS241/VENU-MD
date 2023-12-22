@@ -1,4 +1,4 @@
-package com.capstone.venu.data.response.checker
+package com.capstone.venu.data.response.ml
 
 data class PredictionResponse(
 

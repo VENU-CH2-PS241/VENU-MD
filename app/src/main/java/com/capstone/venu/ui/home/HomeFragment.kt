@@ -10,10 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.venu.R
-import com.capstone.venu.data.api.ml.ApiConfigML
 import com.capstone.venu.data.api.news.ApiConfigNews
-import com.capstone.venu.data.response.home.ArticleResponse
-import com.capstone.venu.data.response.mock.ArticleListMockResponse
+import com.capstone.venu.data.response.news.ArticleListNewsResponse
 import com.capstone.venu.databinding.FragmentHomeBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,7 +21,7 @@ import retrofit2.HttpException
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val apiServiceNews = ApiConfigNews.getNewsApi()
-    private lateinit var listData: List<ArticleListMockResponse>
+    private lateinit var listData: List<ArticleListNewsResponse>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +34,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Use lifecycleScope.launch to launch a coroutine
         lifecycleScope.launch {
             try {
-                // Call generateListData and get the list of articles
                 listData = generateListData()
 
                 // RecyclerView and adapter
@@ -60,8 +56,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private suspend fun generateListData(): List<ArticleListMockResponse> {
-        // Placeholder implementation, replace with your actual API call
+    private suspend fun generateListData(): List<ArticleListNewsResponse> {
         return apiServiceNews.getnewslist()
     }
 

@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.capstone.venu.R
 import com.capstone.venu.data.api.news.ApiConfigNews
-import com.capstone.venu.data.response.mock.ArticleDetailMockResponse
-import com.capstone.venu.data.response.mock.ArticleListMockResponse
+import com.capstone.venu.data.response.news.ArticleDetailNewsResponse
+import com.capstone.venu.data.response.news.ArticleListNewsResponse
 import com.capstone.venu.databinding.ActivityDetailBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,7 +24,7 @@ import retrofit2.HttpException
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private val apiServiceNews = ApiConfigNews.getNewsApi()
-    private lateinit var listData: List<ArticleListMockResponse>
+    private lateinit var listData: List<ArticleListNewsResponse>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,6 @@ class DetailActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
-                // Call generateListData and get the list of articles
                 listData = generateListData()
 
                 // RecyclerView and adapter
@@ -65,8 +64,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun generateListData(): List<ArticleListMockResponse> {
-        // Placeholder implementation, replace with your actual API call
+    private suspend fun generateListData(): List<ArticleListNewsResponse> {
         return apiServiceNews.getnewslist()
     }
 
@@ -76,7 +74,6 @@ class DetailActivity : AppCompatActivity() {
                 val detailResponse = apiServiceNews.getnewsdetail(articleId)
                 displayArticleDetail(detailResponse)
             } catch (e: Exception) {
-                // Handle error, for example show a toast
                 e.printStackTrace()
                 showToast("Error loading article details: ${e.message}")
             }
@@ -86,9 +83,8 @@ class DetailActivity : AppCompatActivity() {
         Toast.makeText(this@DetailActivity, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun displayArticleDetail(detail: ArticleDetailMockResponse) {
+    private fun displayArticleDetail(detail: ArticleDetailNewsResponse) {
         with(binding) {
-            // Populate the UI with the details
             Glide.with(this@DetailActivity)
                 .load(detail.image)
                 .into(ivDet)
@@ -99,7 +95,7 @@ class DetailActivity : AppCompatActivity() {
             tvDescdet.text = detail.description
 
             // Hide the progress bar
-            pbDetail.visibility = View.VISIBLE
+            pbDetail.visibility = View.GONE
         }
     }
 
